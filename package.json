@@ -1,0 +1,13 @@
+{
+  "name": "midi-jambox",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "Gaya Kessler",
+  "license": "ISC",
+  "dependencies": {
+    "midi": "^2.0.0"
+  }
+}
