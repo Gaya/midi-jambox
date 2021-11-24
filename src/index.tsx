@@ -1,8 +1,8 @@
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './components/App';
-import AppContextProvider from './components/AppContext';
+import App from './components/App/App';
+import AppContextProvider from './components/App/AppContext';
 
 import './index.css';
 

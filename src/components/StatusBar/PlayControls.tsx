@@ -1,6 +1,6 @@
 import { FunctionComponent, useContext } from 'react';
 
-import { appContext } from './AppContext';
+import { appContext } from '../App/AppContext';
 
 const PlayControls: FunctionComponent = () => {
   const { state: { settings: { isRunning } }, sendMessage } = useContext(appContext);

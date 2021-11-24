@@ -1,0 +1,78 @@
+.StatusBar {
+    display: flex;
+    align-items: center;
+    background: #a6a6a6;
+    padding: 1em;
+    justify-content: center;
+    box-shadow: #1a1a1a 0 0 50px -10px;
+}
+
+.PlayControls {
+    border-radius: 0.5em;
+    overflow: hidden;
+    margin-right: 1em;
+}
+
+.PlayControls button {
+    background: #6c6c6c;
+    border: 0 solid #9e9e9e;;
+    height: 30px;
+    width: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.PlayControls button:hover, .PlayControls button:focus {
+    background: #505050;
+}
+
+.PlayControls button svg {
+    height: 14px;
+    width: 14px;
+}
+
+.PlayControls button svg path, .PlayControls button svg rect {
+    fill: #ffffff;
+}
+
+.TimeBox {
+    background: #24262e;
+    color: #c7d9ea;
+    border-radius: 1em;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.TimeBox td {
+    padding: 0.5em 1em;
+}
+
+.TimeBox__value {
+    font-size: 2em;
+}
+
+.TimeBox__value, .TimeBox__value--small {
+    font-family: "JetBrains Mono", monospace;
+}
+
+.TimeBox__label {
+    display: block;
+    color: #556576;
+    text-transform: uppercase;
+    font-size: 0.8em;
+}
+
+.TimeBox__Bar {
+    width: 55px;
+}
+
+.TimeBox__Beat, .TimeBox__BPM, .TimeBox__Signature {
+    width: 40px;
+}
+
+.TimeBox__BPM, .TimeBox__Signature {
+    border-left: 1px solid #454b5a;
+}

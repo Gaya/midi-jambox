@@ -2,7 +2,7 @@
   "name": "midi-jambox",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/jambox/index.ts",
   "scripts": {
     "start": "node -r dotenv/config -r ts-node/register src/jambox/index.ts",
     "build": "react-scripts build",

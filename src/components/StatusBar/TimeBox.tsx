@@ -1,6 +1,6 @@
 import { FunctionComponent, useContext } from 'react';
 
-import { appContext } from './AppContext';
+import { appContext } from '../App/AppContext';
 
 const TimeBox: FunctionComponent = () => {
   const { state: { bar, beat, settings: { bpm, beatsPerBar, beatUnit } } } = useContext(appContext);

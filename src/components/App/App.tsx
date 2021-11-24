@@ -1,7 +1,9 @@
 import { FunctionComponent, useContext } from 'react';
 
+import StatusBar from '../StatusBar/StatusBar';
+import Tracks from '../Tracks/Tracks';
+
 import { appContext } from './AppContext';
-import StatusBar from './StatusBar';
 
 const App: FunctionComponent = () => {
   const { connectionState } = useContext(appContext);
@@ -13,6 +15,7 @@ const App: FunctionComponent = () => {
   return (
     <>
       <StatusBar />
+      <Tracks />
     </>
   );
 };

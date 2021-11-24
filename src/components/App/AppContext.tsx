@@ -7,7 +7,7 @@ import {
   useState,
 } from 'react';
 
-import { OutputMessage, WEBSOCKET_MSG } from '../types';
+import { OutputMessage, WEBSOCKET_MSG } from '../../types';
 
 const defaultState: OutputMessage = {
   note: 0,

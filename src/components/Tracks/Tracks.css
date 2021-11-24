@@ -1,0 +1,53 @@
+.Tracks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Tracks .Track {
+    width: 600px;
+    color: #fff;
+    padding: 2em;
+    border-bottom: 1px solid #414141;
+    display: flex;
+    justify-content: flex-start;
+    align-content: flex-start;
+}
+
+.Tracks .Track:last-child {
+    border-bottom: none;
+}
+
+.Tracks .Track select {
+    border: 1px solid #343434;
+    background: #646464;
+    color: #fff;
+    padding: 0.5em 0.3em;
+    border-radius: 0.5em;
+}
+
+.Tracks .Track select option:disabled {
+    color: #ccc;
+}
+
+.Track__Header {
+    margin-bottom: 0.5em;
+    font-size: 0.8em;
+    margin-top: 0.4em;
+    color: #7c7c7c;
+}
+
+.Track__Header--bold {
+    font-weight: 700;
+    font-size: 1em;
+    margin-top: 0;
+    color: #fff;
+}
+
+.TrackOption {
+    margin-left: 0.5em;
+}
+
+.TrackOption:first-child {
+    margin-left: 0;
+}
