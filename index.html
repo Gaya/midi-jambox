@@ -9,26 +9,44 @@
 <body>
     <div id="loading">Connecting...</div>
     <div id="ui">
-        <table class="TimeBox">
-            <tr>
-                <td class="TimeBox__Bar">
-                    <span class="TimeBox__value" id="attr-bar"></span>
-                    <span class="TimeBox__label">Bar</span>
-                </td>
-                <td class="TimeBox__Beat">
-                    <span class="TimeBox__value" id="attr-beat"></span>
-                    <span class="TimeBox__label">Beat</span>
-                </td>
-                <td class="TimeBox__BPM">
-                    <span class="TimeBox__value--small" id="attr-settings-bpm"></span>
-                    <span class="TimeBox__label">BPM</span>
-                </td>
-                <td class="TimeBox__Signature">
-                    <span class="TimeBox__value--small" id="attr-settings-beatsPerBar"></span>/<span class="TimeBox__value--small" id="attr-settings-beatUnit"></span>
-                    <span class="TimeBox__label">&nbsp;</span>
-                </td>
-            </tr>
-        </table>
+        <div class="StatusBar">
+            <div class="PlayControls">
+                <div id="attr-settings-isRunning-false">
+                    <button class="PlayControls__Play" onclick="sendMessage({ type: 'START' })">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 125 125">
+                            <path d="M107.6,54.1L28.8,1.7C22.1-2.8,13,2.1,13,10.1v104.7c0,8.2,9.1,12.9,15.8,8.4l78.8-52.4C113.5,67,113.5,58.1,107.6,54.1z"/>
+                        </svg>
+                    </button>
+                </div>
+                <div id="attr-settings-isRunning-true">
+                    <button class="PlayControls__Stop" onclick="sendMessage({ type: 'STOP' })">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22" x="0px" y="0px">
+                            <rect x="0" y="0" width="22" height="22" rx="4.44" ry="4.44" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <table class="TimeBox">
+                <tr>
+                    <td class="TimeBox__Bar">
+                        <span class="TimeBox__value" id="attr-bar"></span>
+                        <span class="TimeBox__label">Bar</span>
+                    </td>
+                    <td class="TimeBox__Beat">
+                        <span class="TimeBox__value" id="attr-beat"></span>
+                        <span class="TimeBox__label">Beat</span>
+                    </td>
+                    <td class="TimeBox__BPM">
+                        <span class="TimeBox__value--small" id="attr-settings-bpm"></span>
+                        <span class="TimeBox__label">BPM</span>
+                    </td>
+                    <td class="TimeBox__Signature">
+                        <span class="TimeBox__value--small" id="attr-settings-beatsPerBar"></span>/<span class="TimeBox__value--small" id="attr-settings-beatUnit"></span>
+                        <span class="TimeBox__label">&nbsp;</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
 </body>
 </html>

@@ -1,6 +1,8 @@
 body {
     font-family: ".AppleSystemUIFont", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     font-size: 16px;
+    padding: 0;
+    margin: 0;
 }
 
 #loading, #ui {
@@ -15,6 +17,39 @@ body.connected #ui {
     display: block;
 }
 
+.StatusBar {
+    display: flex;
+    align-items: center;
+    background: #a6a6a6;
+    padding: 1em;
+    justify-content: center;
+}
+
+.PlayControls {
+    border-radius: 0.5em;
+    overflow: hidden;
+    margin-right: 1em;
+}
+
+.PlayControls button {
+    background: #6c6c6c;
+    border: 0 solid #9e9e9e;;
+    height: 30px;
+    width: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.PlayControls button svg {
+    height: 14px;
+    width: 14px;
+}
+
+.PlayControls button svg path, .PlayControls button svg rect {
+    fill: #ffffff;
+}
+
 .TimeBox {
     background: #24262e;
     color: #c7d9ea;
@@ -24,7 +59,7 @@ body.connected #ui {
 }
 
 .TimeBox td {
-    padding: 1em;
+    padding: 0.5em 1em;
 }
 
 .TimeBox__value {

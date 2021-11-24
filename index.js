@@ -9,6 +9,7 @@ const wss = new WebSocket.Server({ port: serverPort });
 
 // midi clock settings
 let settings = {
+  isRunning: false,
   bpm: 120,
   ticksPerBeat: 64,
   beatsPerBar: 4, // time signature top number
@@ -23,21 +24,69 @@ let startTick = lastTick;
 // websocket state
 let clients = {};
 
+function startClock() {
+  startTick = +new Date();
+  settings.isRunning = true;
+}
+
+function stopClock() {
+  settings.isRunning = false;
+  outputInfo();
+}
+
 wss.on('connection', (ws) => {
   const id = nanoid(8);
   clients[id] = ws;
 
   console.log(`Client (${id}) connected`);
 
+  ws.on('message', (rawData) => {
+    try {
+      const data = JSON.parse(rawData);
+
+      switch (data.type) {
+        case 'START':
+          startClock();
+          break;
+        case 'STOP':
+          stopClock();
+          break;
+      }
+    } catch (e) {
+      // silent error
+    }
+  });
+
   ws.on('close', () => {
     console.log(`Client (${id}) disconnected`);
 
     delete clients[id];
   });
+
+  outputInfo();
 });
 
+function calcClockValues() {
+  const { isRunning, beatsPerBar, ticksPerBeat } = settings;
+
+  const note = currentTick % ticksPerBeat;
+  const beatTick = Math.floor((currentTick / ticksPerBeat));
+  const beat = beatTick % beatsPerBar;
+  const bar = Math.floor(beatTick / beatsPerBar);
+
+  return {
+    note: isRunning ? note : 0,
+    beat: isRunning ? beat + 1 : 0,
+    bar: isRunning ? bar + 1 : 0,
+  };
+}
+
 function tickClock(d) {
-  const { bpm, beatsPerBar, beatUnit, ticksPerBeat } = settings;
+  const { bpm, beatUnit, ticksPerBeat, isRunning } = settings;
+
+  if (!isRunning) {
+    return;
+  }
 
   const delta = d - startTick;
   const tickInterval = (60000 * 4) / beatUnit / bpm / ticksPerBeat;
@@ -46,18 +95,15 @@ function tickClock(d) {
   if (tick !== currentTick) {
     currentTick = tick;
 
-    const noteTick = currentTick % ticksPerBeat;
-    const beatTick = Math.floor((currentTick / ticksPerBeat));
-    const beat = beatTick % beatsPerBar;
-    const bar = Math.floor(beatTick / beatsPerBar);
-
-    outputInfo({ note: noteTick + 1, beat: beat + 1, bar: bar + 1 });
+    outputInfo();
   }
 
   lastTick = d;
 }
 
-function outputInfo({ note, beat, bar }) {
+function outputInfo() {
+  const { note, beat, bar } = calcClockValues();
+
   Object.values(clients).forEach((c) => {
     c.send(JSON.stringify({ note, beat, bar, settings }));
   });
