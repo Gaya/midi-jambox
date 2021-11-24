@@ -1,0 +1,55 @@
+body {
+    font-family: ".AppleSystemUIFont", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+}
+
+#loading, #ui {
+    display: none;
+}
+
+body.connecting #loading {
+    display: block;
+}
+
+body.connected #ui {
+    display: block;
+}
+
+.TimeBox {
+    background: #24262e;
+    color: #c7d9ea;
+    border-radius: 1em;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.TimeBox td {
+    padding: 1em;
+}
+
+.TimeBox__value {
+    font-size: 2em;
+}
+
+.TimeBox__value, .TimeBox__value--small {
+    font-family: "JetBrains Mono", monospace;
+}
+
+.TimeBox__label {
+    display: block;
+    color: #556576;
+    text-transform: uppercase;
+    font-size: 0.8em;
+}
+
+.TimeBox__Bar {
+    width: 55px;
+}
+
+.TimeBox__Beat, .TimeBox__BPM, .TimeBox__Signature {
+    width: 40px;
+}
+
+.TimeBox__BPM, .TimeBox__Signature {
+    border-left: 1px solid #454b5a;
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Jambox</title>
+    <script src="./jambox.js"></script>
+    <link rel="stylesheet" href="./jambox.css" />
+</head>
+<body>
+    <div id="loading">Connecting...</div>
+    <div id="ui">
+        <table class="TimeBox">
+            <tr>
+                <td class="TimeBox__Bar">
+                    <span class="TimeBox__value" id="attr-bar"></span>
+                    <span class="TimeBox__label">Bar</span>
+                </td>
+                <td class="TimeBox__Beat">
+                    <span class="TimeBox__value" id="attr-beat"></span>
+                    <span class="TimeBox__label">Beat</span>
+                </td>
+                <td class="TimeBox__BPM">
+                    <span class="TimeBox__value--small" id="attr-settings-bpm"></span>
+                    <span class="TimeBox__label">BPM</span>
+                </td>
+                <td class="TimeBox__Signature">
+                    <span class="TimeBox__value--small" id="attr-settings-beatsPerBar"></span>/<span class="TimeBox__value--small" id="attr-settings-beatUnit"></span>
+                    <span class="TimeBox__label">&nbsp;</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
