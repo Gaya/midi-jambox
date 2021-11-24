@@ -25,6 +25,7 @@ body {
   background: #a6a6a6;
   padding: 1em;
   justify-content: center;
+  box-shadow: #1a1a1a 0 0 50px -10px;
 }
 
 .PlayControls {
@@ -41,6 +42,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.PlayControls button:hover, .PlayControls button:focus {
+  background: #505050;
 }
 
 .PlayControls button svg {
