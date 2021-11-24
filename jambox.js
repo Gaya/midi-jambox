@@ -28,10 +28,10 @@ function setDataInUI(data, prefix = '') {
 
 let connectionState = 'disconnected'; // disconnected, connecting, connected
 
-window.socket = undefined;
+let socket = undefined;
 
 function sendMessage(data) {
-  window.socket.send(JSON.stringify(data));
+  socket.send(JSON.stringify(data));
 }
 
 function connectToWebSocket() {
@@ -40,16 +40,16 @@ function connectToWebSocket() {
   document.body.classList.remove('connected');
   document.body.classList.add('connecting');
 
-  window.socket = new WebSocket('ws://localhost:6660');
+  socket = new WebSocket('ws://localhost:6660');
 
-  window.socket.onopen = function onSocketOpen() {
+  socket.onopen = function onSocketOpen() {
     connectionState = 'connected';
 
     document.body.classList.remove('connecting');
     document.body.classList.add('connected');
   };
 
-  window.socket.onmessage = function onSocketMessage(ev) {
+  socket.onmessage = function onSocketMessage(ev) {
     try {
       const data = JSON.parse(ev.data);
 
@@ -59,12 +59,12 @@ function connectToWebSocket() {
     }
   }
 
-  window.socket.onclose = function onSocketClose() {
+  socket.onclose = function onSocketClose() {
     connectionState = 'disconnected';
     document.body.classList.remove('connected');
   };
 
-  window.socket.onerror = function onSocketError() {
+  socket.onerror = function onSocketError() {
     connectionState = 'disconnected';
     document.body.classList.remove('connected');
   };
