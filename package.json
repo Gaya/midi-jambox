@@ -3,13 +3,123 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "start": "node -r dotenv/config -r ts-node/register src/jambox/index.ts",
+    "build": "react-scripts build",
+    "dev": "react-scripts start",
+    "lint": "eslint src"
+  },
   "keywords": [],
   "author": "Gaya Kessler",
   "license": "ISC",
   "dependencies": {
     "midi": "^2.0.0",
     "nanoid": "^3.1.30",
-    "ws": "^8.3.0"
+    "ws": "^8.3.0",
+    "@types/node": "^12.20.37",
+    "@types/react": "^17.0.36",
+    "@types/react-dom": "^17.0.11",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "typescript": "^4.5.2",
+    "dotenv": "^10.0.0",
+    "ts-node": "^10.4.0"
+  },
+  "devDependencies": {
+    "@types/ws": "^8.2.0",
+    "@typescript-eslint/eslint-plugin": "^5.2.0",
+    "@typescript-eslint/parser": "^5.2.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-import-resolver-typescript": "^2.5.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.26.1",
+    "eslint-plugin-react-hooks": "^1.7.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "airbnb",
+      "airbnb/hooks"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "rules": {
+      "react/jsx-filename-extension": [
+        "off"
+      ],
+      "react/prop-types": [
+        "off"
+      ],
+      "import/extensions": [
+        "error",
+        "ignorePackages",
+        {
+          "ts": "never",
+          "tsx": "never",
+          "js": "never",
+          "jsx": "never"
+        }
+      ]
+    },
+    "overrides": [
+      {
+        "extends": [
+          "plugin:@typescript-eslint/eslint-recommended",
+          "plugin:@typescript-eslint/recommended"
+        ],
+        "files": [
+          "**/*.ts?(x)"
+        ],
+        "rules": {
+          "no-shadow": "off",
+          "@typescript-eslint/no-shadow": "error",
+          "no-debugger": "warn",
+          "react/react-in-jsx-scope": "off",
+          "react/prop-types": "off",
+          "react/jsx-filename-extension": [
+            "error",
+            {
+              "extensions": [
+                ".tsx"
+              ]
+            }
+          ],
+          "import/prefer-default-export": "off"
+        }
+      }
+    ],
+    "settings": {
+      "import/parsers": {
+        "@typescript-eslint/parser": [
+          ".ts",
+          ".tsx"
+        ]
+      },
+      "import/resolver": {
+        "typescript": {
+          "alwaysTryTypes": true
+        }
+      }
+    }
+  },
+  "eslintIgnore": [
+    "build/*"
+  ],
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
